@@ -1,0 +1,31 @@
+.results{
+    width:100%;
+    position:relative;
+    &-list{
+        list-style:none;
+        width:100%;
+        &-item{
+            width:100%; height:25vw;
+            position:relative;
+            &-figure{
+                width:70%; height:100%;
+                position:absolute;
+                top:0; left:0;
+                img{width:100%; height:100%; object-fit:cover; object-position:center;}
+            }
+            &-data{
+                position:absolute;
+                bottom:0; right:0;
+            }
+            &.highlight{ background:pink; }
+        }
+    }
+    &-pages{
+        &-btn{
+            float:left;
+            &.next{float:right;}
+        }
+        &::after{ content:''; display:table; clear:both; }
+    }
+    // @media(min-width:426px){ width:50%; }
+}
