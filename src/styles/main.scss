@@ -1,4 +1,5 @@
 *, *::before, *::after{margin:0; padding:0; box-sizing:border-box;}
+body{background:cornsilk;}
 
 button{
     cursor:pointer;
@@ -8,10 +9,30 @@ button{
     position:relative;
     width:100%; max-width:900px;
     margin:0 auto;
+    background:rgb(197, 163, 163);
+    font-family: 'Roboto Condensed', sans-serif;
+    overflow:hidden;
+    @media(min-width:630px){
+      &::after{content:''; display:table; clear:both;}
+    }
+}
+.logo{
+  font-family: 'Dancing Script', cursive;
+  width:90px; height:90px;
+  background:rgb(87, 170, 39); color:white;
+  border-radius:100px;
+  display:flex; justify-content:center; align-items:center;
+  h1{line-height:.65;}
 }
 
+@import './layout/header';
 @import './layout/results';
 @import './layout/recipe';
+@import './layout/likes';
+@import './layout/shopping';
+@import './layout/footer';
+
+a{text-decoration:none; color:inherit;}
 
 
 .loader{

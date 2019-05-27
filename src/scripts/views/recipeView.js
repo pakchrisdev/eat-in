@@ -8,13 +8,11 @@ const renderIngredient = ingred => `
     </li>
 `;
 export const renderRecipe = (recipe, isFavorite) => {
-    const m1 = `<span>add</span>`;
-    const m2 = `<span>remove</span>`;
     const markup = `
         <div class="recipe-div">
+            <h3 class="recipe-div-title">${recipe.title}</h3>
             <figure class="recipe-div-figure">
                 <img src="${recipe.image}" alt="${recipe.title}" onerror="this.onerror=null;this.src='images/notfound.jpg';">
-                <h3 class="recipe-div-title">${recipe.title}</h3>
             </figure>
             <div class="recipe-div-info">
                 <span class="recipe-div-info-span time">
@@ -45,7 +43,7 @@ export const renderRecipe = (recipe, isFavorite) => {
             <div class="recipe-div-link">
                 <h4>get cook(in)</h4>
                 <p class="recipe-div-link-text">compiled and tested by <span>${recipe.author}</span></p>
-                <a href="${recipe.url}" target="_blank">directions</a>
+                <a href="${recipe.url}" target="_blank">directions <i class="fas fa-location-arrow"></i></a>
             </div>
         </div>
     `;

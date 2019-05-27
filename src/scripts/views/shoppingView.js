@@ -14,3 +14,7 @@ export const deleteItem = id => {
     const item = document.querySelector(`[data-id="${id}"]`);
     if(item) item.parentElement.removeChild(item);
 };
+export const toggleShopDiv = list => {
+    elements.shoppingDiv.style.visibility = list > 0 ? 'visible' : 'hidden';
+    elements.shoppingDiv.style.display = list > 0 ? 'block' : 'none';
+};

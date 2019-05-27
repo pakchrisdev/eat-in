@@ -22,8 +22,7 @@ const controlSearch = async () => {
         renderLoader(elements.resultsDiv);
         try{
             await state.search.getRecipes(); // perform search; getRecipe() is async, so this returns a promise... needs to be await
-            // console.log(state.search.recipes) // render results on ui
-            console.log(state.search.getRecipes().length)
+            console.log(state.search.getRecipes().length)// render results on ui
             clearLoader();
             searchView.renderRecipes(state.search.recipes);
         } catch(err){
@@ -51,7 +50,7 @@ const controlRecipe = async () => {
     if(id){ // prepare ui for changes
         recipeView.clearRecipe();
         renderLoader(elements.recipeDiv);
-        if(state.search) searchView.highlightSelected(id);
+        // if(state.search) searchView.highlightSelected(id);
         state.recipe = new Recipe(id); // create new recipe obj
         try{
             await state.recipe.getRecipe();  // get recipe data
@@ -75,6 +74,7 @@ const controlShopping = () => {
         const item = state.shopping.addItem(el);
         shoppingView.renderItem(item);
     });
+    shoppingView.toggleShopDiv(state.shopping.getNumShopping());
 };
 
 // FAVORITES CONTROLLER
@@ -100,11 +100,12 @@ const controlFavorites = () => {
 
 window.addEventListener('load', () => {
     state.favorites = new Favorites();
+    state.shopping = new Shopping();
     state.favorites.getFromLS();
     favoritesView.toggleFavDiv(state.favorites.getNumFavorites()); // toggle fav ind
+    shoppingView.toggleShopDiv(state.shopping.getNumShopping());
     state.favorites.favorites.forEach(fav => favoritesView.renderFavorites(fav));
 });
-
 elements.recipeDiv.addEventListener('click', e => {
     if(e.target.matches('.add-shopping, .add-shopping *')){
         controlShopping(); // console.log(state.recipe.ingredients)
@@ -119,7 +120,14 @@ elements.shoppingList.addEventListener('click', e => {
         shoppingView.deleteItem(id);
     }
 });
-
+elements.likesInd.addEventListener('click', () => {
+    elements.likesDiv.classList.toggle('view');
+});
+document.querySelector('.shopping-tab').addEventListener('click', function(){
+    // if(e.target.closest())
+    this.parentElement.classList.toggle('view');
+});
 
 
 // <img onerror="this.onerror=null;this.src='imagefound.gif';">
+

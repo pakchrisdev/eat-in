@@ -8,7 +8,7 @@ const renderRecipe = recipe => {
                     <img src="${recipe.image_url}" alt="${recipe.title}" onerror="this.onerror=null;this.src='images/notfound.jpg';">
                 </figure>
                 <div class="results-list-item-data">
-                    <h4 class="results-list-item-title">${limitTitle(recipe.title)}</h4>
+                    <h4 class="results-list-item-title">${limitTitle(recipe.title, 23)}</h4>
                     <p class="results-list-item-author">${recipe.publisher}</p>
                 </div>
             </a>
@@ -57,8 +57,8 @@ const renderButtons = (pg, totRes, perPg) => {
         button = renderButton(pg, 'prev'); // only go to prev pg
     } else{
         button = '';
-        // button = `<h2 class="result-error">error</h2>`;
-        // setTimeout(()=>{ document.querySelector('.result-error').remove() }, 2000);
+        button = `<h2 class="result-error">no results were found, please enter another search term</h2>`;
+        setTimeout(()=>{ document.querySelector('.result-error').remove() }, 2000);
     }
     elements.resultsPages.insertAdjacentHTML('afterbegin', button);
 };
@@ -70,8 +70,8 @@ export const renderRecipes = (recipes, pg = 1, perPg = 5) => {
     renderButtons(pg, recipes.length, perPg);
 };
 
-export const highlightSelected = id => {
-    const highlighted = Array.from(document.querySelectorAll('.results-list-item'));
-    highlighted.forEach(el => el.classList.remove('highlight'));
-    document.querySelector(`a[href="#${id}"]`).closest('.results-list-item').classList.add('highlight');
-};
+// export const highlightSelected = id => {
+//     const highlighted = Array.from(document.querySelectorAll('.results-list-item'));
+//     highlighted.forEach(el => el.classList.remove('highlight'));
+//     if(document.querySelector('.results-list-item')) document.querySelector(`a[href="#${id}"]`).closest('.results-list-item').classList.add('highlight');
+// };

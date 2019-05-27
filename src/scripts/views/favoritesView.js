@@ -10,10 +10,10 @@ export const renderFavorites = fav => {
         <li class="likes-list-item">
             <a href="#${fav.id}" class="likes-list-item-link">
                 <figure class="likes-list-item-figure">
-                    <img src="${fav.img}">
+                    <img src="${fav.img}" onerror="this.onerror=null;this.src='images/notfound.jpg';">
                 </figure>
                 <div class="likes-list-item-info">
-                    <h4>${limitTitle(fav.title, 15)}</h4>
+                    <h4>${limitTitle(fav.title, 18)}</h4>
                     <p>${fav.author}</p>
                 </div>
             </a>
@@ -27,6 +27,7 @@ export const deleteFavorite = id => {
 };
 export const toggleFavDiv = numFav => {
     elements.likesInd.style.visibility = numFav > 0 ? 'visible' : 'hidden';
+    elements.likesInd.style.display = numFav > 0 ? 'inline-block' : 'none';
 };
 
 // <span class="recipe-div-info-span add-fav">

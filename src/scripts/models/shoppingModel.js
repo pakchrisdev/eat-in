@@ -17,4 +17,5 @@ export default class Shopping{
         const index = this.items.findIndex(el => el.id === id);
         this.items.splice(index, 1);
     }
+    getNumShopping(){ return this.items.length; }
 }
