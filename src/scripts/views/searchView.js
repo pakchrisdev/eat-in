@@ -69,9 +69,3 @@ export const renderRecipes = (recipes, pg = 1, perPg = 5) => {
     recipes.slice(start, end).forEach( renderRecipe );
     renderButtons(pg, recipes.length, perPg);
 };
-
-// export const highlightSelected = id => {
-//     const highlighted = Array.from(document.querySelectorAll('.results-list-item'));
-//     highlighted.forEach(el => el.classList.remove('highlight'));
-//     if(document.querySelector('.results-list-item')) document.querySelector(`a[href="#${id}"]`).closest('.results-list-item').classList.add('highlight');
-// };

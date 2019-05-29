@@ -24,41 +24,4 @@ export default class Recipe{
     calcServings(){
         this.servings = 4;
     }
-    // parseIngredients(){
-    //     const long = ['tablespoons', 'tablespoon', 'teaspoons', 'teaspoon', 'ounces', 'ounce'];
-    //     const short = ['tbsp', 'tbsp', 'tsp', 'tsp', 'oz', 'oz'];
-    //     const newIngreds = this.ingredients.map(ing => {
-    //         let ingred = ing.toLowerCase();
-    //         long.forEach((unit, i) => { // uniform units
-    //             ingred = ingred.replace(unit, short[i]);
-    //         });
-    //         ingred = ingred.replace(/ *\([^)]*\) */g, ' '); // remove parenthesis
-
-    //         const ingredArr = ingred.split(' ');
-    //         const unitInd = ingredArr.findIndex(unit => short.includes(unit));
-    //         let ingredObj;
-    //         if(unitInd > -1){
-    //             // unit it present
-    //             const arrCount = ingredArr.slice(0, unitInd);
-    //             let count;
-    //             if(arrCount.length === 1) count = eval(ingredArr[0].replace('-', '+'));
-    //             else count = eval(ingredArr.slice(0, unitInd).join('+'));
-    //             ingredObj = {
-    //                 count,
-    //                 unit: ingredArr[unitInd],
-    //                 ingred: ingredArr.slice(unitInd + 1).join(' ')
-    //             };
-    //         } else if(parseInt(ingredArr[0], 10)){
-    //             ingredObj = {
-    //                 count: parseInt(ingredArr[0], 10),
-    //                 unit: '',
-    //                 ingred: ingredArr.slice(1).join(' ')
-    //             }; // no unit but 1st el is a num
-    //         } else if(unitInd === 1){
-    //             ingredObj = { count: 1, unit: '', ingred }; // no unit or number in 1st pos
-    //         }
-    //         return ingredObj;
-    //     });
-    //     this.ingredients = newIngreds;
-    // }
 }

@@ -29,8 +29,3 @@ export const toggleFavDiv = numFav => {
     elements.likesInd.style.visibility = numFav > 0 ? 'visible' : 'hidden';
     elements.likesInd.style.display = numFav > 0 ? 'inline-block' : 'none';
 };
-
-// <span class="recipe-div-info-span add-fav">
-//     <i class="fas fa-plus-circle"></i>
-//     add to favorites
-// </span>

@@ -50,13 +50,9 @@ const controlRecipe = async () => {
     if(id){ // prepare ui for changes
         recipeView.clearRecipe();
         renderLoader(elements.recipeDiv);
-        // if(state.search) searchView.highlightSelected(id);
         state.recipe = new Recipe(id); // create new recipe obj
         try{
             await state.recipe.getRecipe();  // get recipe data
-
-            // state.recipe.parseIngredients();
-            
             state.recipe.calcServings(); // calc servings time
             state.recipe.calcTime();
             clearLoader();
@@ -124,10 +120,5 @@ elements.likesInd.addEventListener('click', () => {
     elements.likesDiv.classList.toggle('view');
 });
 document.querySelector('.shopping-tab').addEventListener('click', function(){
-    // if(e.target.closest())
     this.parentElement.classList.toggle('view');
 });
-
-
-// <img onerror="this.onerror=null;this.src='imagefound.gif';">
-
